@@ -79,11 +79,11 @@ function sellerSignup(){let u={name:ssName.value,email:ssEmail.value,phone:ssPho
 function login(){let u=users.find(x=>(x.email===liId.value||x.phone===liId.value)&&x.password===liPass.value);if(!u)return toast('Invalid login');current=u;save();go('profile')}
 function demo(){current={name:'Hassan Raza',email:'demo@hassan.com',phone:'03000000000',role:'customer'};save();go('profile')}
 function logout(){current=null;save();go('home')}
-function adminLogin(){if(ai.value==='admin'&&ap.value==='admin123'){current={name:'Administrator',email:'admin@zivo.com',role:'admin'};save();adminTab='dashboard';go('admin')}else toast('Wrong admin username or password')}
+function adminLogin(){if(ai.value==='Hassan'&&ap.value==='hassan240250'){current={name:'Administrator',email:'admin@zivo.com',role:'admin'};save();adminTab='dashboard';go('admin')}else toast('Wrong admin username or password')}
 function addProduct(){let p={id:Date.now(),name:pn.value,cat:pc.value,price:+pp.value||0,old:+po.value||+pp.value||0,off:+pd.value||0,icon:pi.value||'📦',rating:5,reviews:0};if(!p.name||!p.price)return toast('Enter product name and price');products.unshift(p);save();toast('Product added');render()}
 function deleteProduct(id){if(confirm('Delete this product?')){products=products.filter(p=>p.id!==id);save();render()}}
 function statusOrder(id){let o=orders.find(x=>x.id===id);let s=prompt('Enter status: Pending / Processing / Shipped / Delivered / Cancelled',o.status);if(s){o.status=s;save();render()}}
-function initAdmin(){if(!users.some(u=>u.role==='admin')){users.push({name:'Administrator',email:'admin@zivo.com',password:'admin123',role:'admin'});localStorage.setItem('hc_users',JSON.stringify(users))}}
+function initAdmin(){if(!users.some(u=>u.role==='admin')){users.push({name:'Administrator',email:'admin@zivo.com',password:'hassan240250',role:'admin'});localStorage.setItem('hc_users',JSON.stringify(users))}}
 function render(){document.getElementById('app').innerHTML=pages[page]?pages[page]():pages.home();badge()}
 initAdmin();render();badge();
 </script>
